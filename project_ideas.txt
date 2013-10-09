@@ -1,4 +1,5 @@
 Some project ideas:
-- 
-- 
+- "Kayak" for date night! Aggregate activities (ie dining, movies, music, sports, etc) based on dates, preferences, into one central dashboard.
+-  Redesign an artist friend's website. Create a slideshow of pieces, improve design, add stationary products for sale, local art news, SEO
+
 - 
