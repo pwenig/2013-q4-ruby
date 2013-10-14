@@ -70,7 +70,7 @@ end
 namespace :db do
   desc "Show tables' schema and data in db specified by config/database.yml"
   task :dump do
-    require '../dvc-sinatra'
+    require './davinci-sinatra.rb'
     ActiveRecord::Base.logger = nil # turn off SQL logging
 
     sql = "select tablename from pg_tables where schemaname = 'public'"
