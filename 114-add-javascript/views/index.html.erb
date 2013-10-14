@@ -1,0 +1,10 @@
+<h1>Index</h1>
+
+<% paths = Dir.glob(File.expand_path('../views/*.html.erb', __FILE__)) %>
+<% routes = paths.map { |path|
+     File.split(path)[1].gsub(/\.html\.erb$/, '')
+   } - [ 'index', '_layout'] %>
+
+<% routes.each do |filename| %>
+  <h2><%= link_to filename, filename %></h2>
+<% end %>
