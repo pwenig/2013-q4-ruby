@@ -1,3 +1,26 @@
 <h1>Track &amp; Field race times</h1>
 
-<!-- TODO: fill this out -->
+<table border="1">
+
+	<tr>
+		<th></th>
+		<% Races.order(:name).each do |races| %>
+		<th><%= races.name %></th>
+		<% end %>
+		</tr>
+		
+		<% Athletes.order(:name).each do |athletes| %>
+			<tr>
+				<th>
+					<%= athletes.name %>
+				</th>
+				
+				<% Races.order(:name).each do |races| %>
+					<td>_________:____</td>
+		<% end %>
+		
+		</tr>
+		<% end %>
+		
+		
+</table>

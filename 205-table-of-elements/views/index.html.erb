@@ -1,3 +1,20 @@
 <h1>Chemical elements</h1>
 
+<table border="1" class="table table-striped">
+	<tr>
+		<th>Number</th>
+    <th>Symbol</th>
+    <th>Name</th>
+	</tr>
+  
+  <% Element.order(:id).each do |element| %>
+  	<tr>
+  		<td><%= element.number %></td>      <!-- this ties into the database -->
+  		<td><%= element.symbol %></td>
+  		<td><%= element.name   %></td>
+  	</tr>
+  <% end %>
+  
+</table>
+
 <!-- TODO: fill in this part -->

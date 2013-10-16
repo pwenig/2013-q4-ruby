@@ -3,7 +3,7 @@ body {
 }
 
 .top-bar {
- background-color: #700;
+ background-color: #500;  /*You can use RBG values /*
  padding: 10px;
  color: white;
  font-weight: bold;

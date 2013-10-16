@@ -1,5 +1,21 @@
-<p>Here's an example of a car with a blue background, to get you started:</p>
 
-<div style="background-color:#77f">
-  <img src="/images/car.png">
-</div>
+<table>
+	<tr>
+		<th></th>
+			<% Color.order(:id).each do |color| %>
+			<th><%= color.name %></th>
+			<% end %>
+	</tr>
+	<% Vehicle.order(:id).each do |vehicle| %>
+	<tr>
+		<th><%= vehicle.name %></th>
+		<% Color.order(:id).each do |color| %>
+			<td>
+				<div style="background-color:<%= color.html_color_code %>">
+				<img src="/images/<%= vehicle.image_filename %>">
+				</div>
+			</td>
+			<% end %>
+		</tr>
+	<% end %>
+</table> 

@@ -1,3 +1,10 @@
 <h1>Cycling dictionary</h1>
 
+	<ul>
+		<% Term.order(:id) .each do |term| %>
+		<li><b><%=term.term %></b> (<%=term.part_of_speech %>)</li>
+		<p><%=term.definition %></p>
+		<% end %>
+	</ul>
+
 <!-- TODO: fill this out -->
