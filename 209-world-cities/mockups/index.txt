@@ -1,0 +1,6 @@
+World cities
+
+City name                 Country flag  Time zone Population
+London, United Kingdom                  UTC+0000  8,000,000
+Paris, France                           UTC+0100  2,000,000
+Shanghai, China                         UTC+0800  14,000,000

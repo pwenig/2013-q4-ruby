@@ -1,0 +1,22 @@
+Multiple choice test
+
+Problem #1
+What is 4 + 5?
+A. 45
+B. 11
+C. 1
+D. 9
+
+Problem #2
+What is 3 x 9?
+A. 22
+B. 27
+C. 29
+D. 12
+
+Problem #3
+What is 13 - 9?
+A. 11
+B. 22
+C. 14
+D. 4
