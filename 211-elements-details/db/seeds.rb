@@ -3,7 +3,7 @@ Element.create! \
   symbol: "H" ,
   name: "Hydrogen",
   description: "Hydrogen is a chemical element with chemical symbol H and atomic number 1. With an atomic weight of 1.00794 u, hydrogen is the lightest element and its monatomic form (H) is the most abundant chemical substance, constituting roughly 75% of the Universe's baryonic mass. Non-remnant stars are mainly composed of hydrogen in its plasma state.",
-  discovery_info: "Hydrogen gas was first artificially produced in the early 16th century, via the mixing of metals with acids. In 1766–81, Henry Cavendish was the first to recognize that hydrogen gas was a discrete substance,[8] and that it produces water when burned, a property which later gave it its name: in Greek, hydrogen means 'water-former'."
+  discovery_info: "Hydrogen gas was first artificially produced in the early 16th century, via the mixing of metals with acids. In 1766-81, Henry Cavendish was the first to recognize that hydrogen gas was a discrete substance,[8] and that it produces water when burned, a property which later gave it its name: in Greek, hydrogen means 'water-former'."
 
 Element.create! \
   number: 2,
