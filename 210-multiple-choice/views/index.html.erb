@@ -1,3 +1,14 @@
 <h1>Multiple choice test</h1>
 
-<!-- TODO: write this -->
+	<% Question.order(:id).each do |question| %>
+		<h2>Problem #<%= question.id %></h2>
+		<h3><%= question.problem %></h2>
+		<ul>
+			<li>A. <%= question.answer1 %></li>
+			<li>B. <%= question.answer2 %></li>
+			<li>C. <%= question.answer3 %></li>
+			<li>D. <%= question.answer4 %></li>
+		</ul>
+		<% end %>
+		
+		
