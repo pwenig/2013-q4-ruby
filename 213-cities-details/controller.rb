@@ -4,4 +4,8 @@ get "/" do
   halt erb(:index)
 end
 
-# TODO: write handler for detail pages route
+get "/cities/:id" do
+	id = params[:id]
+	@city = WorldCity.find(id)
+	halt erb(:show)
+end
