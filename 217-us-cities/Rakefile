@@ -34,9 +34,7 @@ task :console do
   # like running pry from command line
   Pry::CLI.parse_options # like running pry from command line
 end
-task :c => :console
 
-Rake::Task['routes'].clear
 desc "List routes of the Sinatra app specified in config.ru"
 task :routes do
   require 'rack'

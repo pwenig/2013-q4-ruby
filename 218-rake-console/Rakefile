@@ -27,7 +27,7 @@ task :console do
 
   # load Sinatra app specified in config.ru
   app, options = Rack::Builder.parse_file('config.ru')
-  
+
   # 'rake console' is two words; remove first so can specify pry args
   ARGV.shift
 

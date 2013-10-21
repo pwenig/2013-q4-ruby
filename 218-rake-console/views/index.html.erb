@@ -1,0 +1,23 @@
+<h2>Elements</h2>
+
+<ul>
+  <% Element.order(:id).each do |e| %>
+    <li>
+      <a href="/elements/<%= e.id %>">
+        <%= e.name %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<h2>World Cities</h2>
+
+<ul>
+  <% WorldCity.order(:id).each do |c| %>
+    <li>
+      <a href="/cities/<%= c.id %>">
+        <%= c.name %>
+      </a>
+    </li>
+  <% end %>
+</ul>
