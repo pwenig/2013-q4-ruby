@@ -21,7 +21,7 @@
       if (name !== '') {
         $($input).before(
           "<div class='param-label' data-for-name='" +
-          name + "'>&#8600; params[\"" + name + "\"]==" + val_quoted + "</div>"
+          name + "'>&#8600; params[:" + name + "]==" + val_quoted + "</div>"
         );
       }
     }

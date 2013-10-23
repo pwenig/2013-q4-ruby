@@ -1,0 +1,15 @@
+<h1>List of goats</h1>
+
+<% @goats.each do |goat| %>
+  <h2><%= goat.name %></h2>
+
+  <p>
+    Best 100-meter dash time: <%= goat.best_100m_time %>
+
+    <a href="/goats/<%= goat.id %>">(Edit)</a>
+  </p>
+<% end %>
+
+<p>
+  <a href="/new_goat">(Add new goat)</a>
+</p>

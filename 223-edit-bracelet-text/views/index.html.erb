@@ -1,0 +1,21 @@
+<h1>Customize your ID bracelet</h1>
+
+<h2>Preview</h2>
+
+<div class="bracelet-preview">
+  <% @lines.each do |line| %>
+    <div style='font-size:<%= line.font_size %>pt'>
+      <%= line.text %>
+    </div>
+  <% end %>
+</div>
+
+<ul>
+  <% @lines.each do |line| %>
+    <li>
+      <a href="/lines/<%= line.id %>">
+        Customize line <%= line.id %>
+      </a>
+    </li>
+  <% end %>
+</ul>

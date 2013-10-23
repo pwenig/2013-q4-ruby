@@ -1,0 +1,21 @@
+html {
+  background-color: #eee;
+}
+body {
+  width: 760px;
+  margin: 20px auto;
+  background-color: white;
+  border: 3px #ccc solid;
+  padding: 30px;
+  font-family: sans-serif;
+  font-size: 16pt;
+}
+
+.bracelet-preview {
+  border: 1px black solid;
+  text-align: center;
+  width: 500px;
+  background: -webkit-gradient(linear, 100% 0%, 0% 0%, from(#663600), to(#662C00), color-stop(.5,#FF8200));
+  color: white;
+  white-space: nowrap;
+}
