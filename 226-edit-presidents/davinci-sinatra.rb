@@ -18,7 +18,6 @@ use Rack::Flash, sweep: true
 helpers ActionView::Helpers::FormTagHelper
 helpers ActionView::Helpers::FormOptionsHelper
 helpers ActionView::Helpers::DynamicForm
-helpers ActionView::Helpers::NumberHelper
 
 # avoid error message that we get from using Rails form helpers with Sinatra
 helpers do

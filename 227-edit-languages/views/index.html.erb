@@ -1,0 +1,23 @@
+<h1>Languages</h1>
+
+<table class="table">
+
+  <tr>
+    <th>Name</th>
+    <th>Speakers</th>
+  </tr>
+
+  <% @languages.each do |language| %>
+    <tr>
+      <td>
+        <a href="/languages/<%= language.id %>">
+          <%= language.name %>
+        </a>
+      </td>
+      <td><%= number_with_delimiter(language.num_speakers) %></td>
+    </tr>
+  <% end %>
+
+</table>
+
+<a href="/new_language">Add new language</a>

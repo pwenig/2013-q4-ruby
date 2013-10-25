@@ -1,0 +1,14 @@
+<h1>Presidents</h1>
+
+<ul>
+  <% @presidents.each do |president| %>
+    <li>
+      <a href="/presidents/<%= president.id %>">
+        #<%= president.term_number %>
+        <%= president.name %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<a href="/new_president">Add new president</a>
