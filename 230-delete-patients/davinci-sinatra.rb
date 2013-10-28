@@ -18,15 +18,11 @@ use Rack::Flash, sweep: true
 helpers ActionView::Helpers::FormTagHelper
 helpers ActionView::Helpers::FormOptionsHelper
 helpers ActionView::Helpers::DynamicForm
-helpers ActionView::Helpers::NumberHelper
 
 # avoid error message that we get from using Rails form helpers with Sinatra
 helpers do
   def protect_against_forgery?
     false
-  end
-  def convert_to_model(object)
-    object.respond_to?(:to_model) ? object.to_model : object
   end
 end
 

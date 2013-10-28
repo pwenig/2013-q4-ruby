@@ -1,0 +1,36 @@
+<h1>Apartments</h1>
+
+<table class="table">
+
+  <tr>
+    <th>ID</th>
+    <th>Address</th>
+    <th>Rent</th>
+    <th>Link</th>
+    <th>Allows pets?</th>
+  </tr>
+
+  <% @apartments.each do |a| %>
+    <tr>
+      <td>
+        <%= a.id %>
+      </td>
+      <td>
+        <%= a.address %>
+      </td>
+      <td>
+        $<%= a.rent_per_month %>.00
+      </td>
+      <td>
+        <a href="<%= a.url %>">Craigslist</a>
+      </td>
+      <td>
+        <%= a.does_allow_pets %>
+      </td>
+      <td>
+        <a href="/delete_apartment/<%= a.id %>">Delete</a>
+      </td>
+    </tr>
+  <% end %>
+
+</table>
