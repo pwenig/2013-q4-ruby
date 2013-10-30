@@ -10,7 +10,20 @@ get "/new_president" do
   halt erb(:edit)
 end
 
-# TODO: write POST handler to create president
+post "/new_president" do
+	@president = President.new
+	@president.name 				= params["name"]
+	@president.term_number 			= params["term_number"]
+	@president.biography 			= params["biography"]
+	@president.ended_term_early 	= params["ended_term_early"]
+	@president.party 				= params["party"]
+	@president.former_occupation 	= params["former_occupation"]
+	@president.birth_state_id 		= params["birth_state_id"]
+	@president.save!
+	redirect "/"
+end
+
+
 
 get "/presidents/:id" do
   id = params["id"]
@@ -18,4 +31,18 @@ get "/presidents/:id" do
   halt erb(:edit)
 end
 
-# TODO: write POST handler to update president
+post "/presidents/:id" do
+	id = params["id"]
+	@president 						= President.find(id)
+	@president.name 				= params["name"]
+	@president.term_number 			= params["term_number"]
+	@president.biography 			= params["biography"]
+	@president.ended_term_early 	= params["ended_term_early"]
+	@president.party 				= params["party"]
+	@president.former_occupation 	= params["former_occupation"]
+	@president.birth_state_id 		= params["birth_state_id"]
+	@president.save!
+	redirect "/"
+end
+
+ 

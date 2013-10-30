@@ -1,1 +1,28 @@
-<p>TODO: edit this file to match the mockup</p>
+<h1>Edit <%= @language.name %></h1>
+
+
+<p>
+<%= label_tag "name" %><br>
+	<%= text_field_tag "name", @language.name %>
+</p>
+<p>
+<%= label_tag "num_speakers", "Number of speakers" %><br>
+	<%= text_field_tag "num_speakers", @language.num_speakers %>
+</p>
+<p>
+	<%= label_tag :language_family_id %><br>
+	<%= select_tag"language_family_id", options_from_collection_for_select(LanguageFamily.order(:name), :id, :name, @language.language_family_id), prompt: "Choose language.." %>
+</p>
+<p>
+	<%= label_tag :main_script %><br>
+	<%= select_tag "main_script", options_for_select([ "Cyrillic", "Latin", "Perso-Arabic"], @language.main_script), prompt: "Choose main script.." %>
+</p>
+
+<p>
+	<%= label_tag :has_arabic_script %><br>
+	<%= check_box_tag :has_arabic_script, "on", @language.has_arabic_script %>
+
+</p>
+<p>
+	<%= submit_tag "Update language" %>
+</p>

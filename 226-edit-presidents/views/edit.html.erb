@@ -1,3 +1,54 @@
 <h1>Edit president</h1>
 
-<!-- TODO: write this part to match the mockup -->
+<p>
+<%= label_tag "name" %>
+</p>
+<p>
+<%= text_field_tag "name", @president.name %>
+</p>
+
+<p>
+<%= label_tag "biography" %>
+</p>
+<p>
+<%= text_area_tag "biography", @president.biography %>
+</p>
+
+<p>
+	<%= label_tag "ended_term_early" %>
+	<br>
+	<%= check_box_tag "ended_term_early", "on", @president.ended_term_early %>
+</p>
+
+<p>
+	<%= submit_tag "Save" %>
+</p>
+
+<p>
+	<%= label_tag "party" %>
+	<br>
+
+	<%= radio_button_tag "party", "democrat", @president.party == "democrat" %>
+	<%= label_tag "party_democrat", "Democrat", class: "radio-label" %>
+
+	<%= radio_button_tag "party", "republican", @president.party == "republican" %>
+	<%= label_tag "party_republican", "Republican", class: "radio-label" %>
+
+	<%= radio_button_tag "party", "whig", @president.party == "whig" %>
+	<%= label_tag "party_whig", "Whig", class: "radio-label" %>
+</p>
+
+<p>
+	<%= label_tag "former_occupation" %>
+	<br>
+	<%= select_tag "former_occupation", options_for_select(["clothing retailer", "farmer", "lawyer", "sailor", "soldier"], @president.former_occupation), prompt: "Choose occupation" %>
+</p>
+
+<p>
+	<%=label_tag "birth_state_id" %>
+	<br>
+	<%= select_tag "birth_state_id", options_from_collection_for_select(State.order(:id), :id, :name, @president.birth_state_id), prompt: "Choose birth state" %>
+</p>
+
+<%= submit_tag "Revise history" %>
+

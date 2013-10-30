@@ -12,10 +12,17 @@ get "/patients/:id" do
 end
 
 post "/patients/:id" do
-  id                 = params["id"]
-  @patient           = Patient.find(id)
-  @patient.systolic  = params["systolic"]
-  @patient.diastolic = params["diastolic"]
-  @patient.save!
+    id                 = params["id"]
+    @patient           = Patient.find(id)
+
+  if params["commit"] == "Update"
+    @patient.systolic  = params["systolic"]
+    @patient.diastolic = params["diastolic"]
+    @patient.save!
+
+  elsif params["commit"] == "Delete"
+    @patient.destroy
+  end
   redirect "/"
 end
+

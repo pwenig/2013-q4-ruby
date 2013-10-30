@@ -10,3 +10,8 @@ body {
   font-family: sans-serif;
   font-size: 16pt;
 }
+
+.errorExplanation h2 {
+
+	display:	none;
+}

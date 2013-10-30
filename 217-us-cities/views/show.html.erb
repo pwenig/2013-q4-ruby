@@ -1,1 +1,8 @@
-<!-- TODO: write this -->
+<h1>Info about <%= @city.name %>, <%= @city.state_abbreviation %></h1>
+
+<p>At noon Eastern Time, the local time is <%= @city.time_zone %></p>
+<p>Its Google map link is <a href="https://maps.google.com/maps?q=<%= @city.latitude %>,<%= @city.longitude %>&amp;z=10&amp;output=embed">https://maps.google.com/maps?q=<%= @city.latitude %>,<%= @city.longitude %>&amp;z=10&amp;output=embed
+  </a>
+</p>
+
+<iframe width="100%" height="350" src="https://maps.google.com/maps?q=<%= @city.latitude %>,<%= @city.longitude %>&amp;z=10&amp;output=embed"></iframe>

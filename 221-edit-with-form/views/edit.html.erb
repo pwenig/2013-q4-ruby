@@ -1,1 +1,12 @@
-<!-- TODO: write this to match the mockup -->
+<h1>Edit patient #<%= @patient.id %></h1>
+
+<h2> <%= label_tag "systolic" %></h2>
+<%= text_field_tag "systolic", @patient.systolic %>
+
+
+<h2> <%= label_tag "diastolic" %></h2>
+<%= text_field_tag "diastolic", @patient.diastolic %>
+
+<br><br>
+<%= submit_tag "Update" %>
+

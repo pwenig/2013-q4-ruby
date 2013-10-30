@@ -1,5 +1,13 @@
 require './davinci-sinatra.rb'
 
-# TODO: write handler for index page
+get "/" do 
+	halt erb(:index)
+end
 
-# TODO: write handler for show page
+get "/cities/:id" do
+	id = params[:id]
+	@detail = UsCity.find(id)
+	halt erb(:show)
+end
+
+

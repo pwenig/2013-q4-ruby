@@ -1,3 +1,21 @@
 <h1>Selected U.S. Cities</h1>
 
-<!-- TODO: write this -->
+<table>
+	<tr>
+		<th>City</th>
+		<th>State</th>
+	</tr>
+	<% UsCity.order(:id).each do |city| %>
+	<tr>
+		<td>
+		<a href="/cities/<%= city.id %>">
+			<%= city.name %>
+		</a>
+		</td>
+		<td>
+		<%= city.state_abbreviation %>
+		</td>
+	</tr>
+	<% end %>
+</table>
+

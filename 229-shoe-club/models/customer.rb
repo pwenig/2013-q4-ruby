@@ -11,3 +11,4 @@ class Customer < ActiveRecord::Base
   validates :bill_state,    length: { is: 2 }, allow_nil: true
   validates :bill_zip_code, format: { with: /\A\d{5}\z/, message: "should be 5 digits" }, allow_nil: true
 end
+ 

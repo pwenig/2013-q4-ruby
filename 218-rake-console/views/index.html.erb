@@ -1,5 +1,7 @@
 <h2>Elements</h2>
 
+<li><a href="/create_element">Create New Element</a></li>
+
 <ul>
   <% Element.order(:id).each do |e| %>
     <li>
@@ -12,12 +14,21 @@
 
 <h2>World Cities</h2>
 
+
 <ul>
   <% WorldCity.order(:id).each do |c| %>
     <li>
       <a href="/cities/<%= c.id %>">
         <%= c.name %>
       </a>
+     ( <%= c.population_in_millions %> million people )
     </li>
   <% end %>
+  
 </ul>
+
+<p>
+  <a href="/double_paris_pop">
+    Double population of Paris!
+  </a>
+</p>

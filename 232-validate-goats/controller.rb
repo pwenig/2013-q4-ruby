@@ -16,8 +16,12 @@ post "/new_goat" do
   @goat.gender             = params["gender"]
   @goat.best_100m_time     = params["best_100m_time"]
   @goat.dietary_preference = params["dietary_preference"]
-  @goat.save!
+  
+  if @goat.save == true
   redirect "/"
+else
+  halt erb(:edit)
+  end
 end
 
 get "/goats/:id" do

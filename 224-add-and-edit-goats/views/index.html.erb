@@ -1,4 +1,8 @@
-<h1>List of goats</h1>
+<div class = "container">
+<img src="/images/racing.jpg"</>
+
+
+<h1>List of Burros</h1>
 
 <% @goats.each do |goat| %>
   <h2><%= goat.name %></h2>
@@ -8,8 +12,13 @@
 
     <a href="/goats/<%= goat.id %>">(Edit)</a>
   </p>
+
+  <p>
+  	Dietary Preferance: <%= goat.dietary_preference %>
+  </p>
 <% end %>
 
 <p>
   <a href="/new_goat">(Add new goat)</a>
 </p>
+</div>

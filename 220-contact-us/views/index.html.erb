@@ -1,11 +1,29 @@
 <h1>Contact Us</h1>
 
-<!-- TODO: write this part -->
+<h2>
+<%= label_tag "subject" %>
+</h2>
+<%= text_field_tag "subject", 
+	"", 
+	placeholder: "Subject",
+	size: 50 %>
+
+<h2>
+<%= label_tag "body" %>
+</h2>
+<%= text_area_tag "body", 
+"",	
+ placeholder: "Body",
+ rows: 2, cols: 50 %>
+
+<br><br>
+<%= submit_tag "Send Message" %>
 
 <hr>
 <h3>Messages so far:</h3>
 <ul>
   <% Message.order(:id).each do |message| %>
-    <li><%= message.subject %></li>
+    <li>Subject: <%= message.subject %></li>
+    <li>Message: <%= message.body %></li>
   <% end %>
 </ul>

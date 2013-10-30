@@ -1,7 +1,7 @@
 <h1>Apartments</h1>
 
 <table border="1">
-
+ 
   <tr>
     <th>ID</th>
     <th>Address</th>
@@ -34,6 +34,31 @@
     </tr>
   <% end %>
 
-  <!-- TODO: add new <tr> with text fields here -->
+    <tr>
+      <td>(new)</td>
+      <td>
+        <%= text_field_tag "address",
+            "" %>
+      </td>
+      <td>
+        <%= text_field_tag "rent_per_month",
+            "",
+            size: 3 %>
+      </td>
+      <td>
+        <%= text_field_tag "does_allow_pets",
+              "",
+              size: 3 %>
+      </td>
+      <td>
+        <%= text_area_tag "url",
+            "",
+            rows: 1, cols: 30 %>
+      </td>
+      <td>
+        <%= submit_tag "Create" %>
+      </td>
+
+    </tr>
 
 </table>

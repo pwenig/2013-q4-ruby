@@ -14,3 +14,4 @@ post "/" do
   @apartment.save!
   redirect "/"
 end
+ 
