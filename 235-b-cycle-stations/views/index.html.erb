@@ -1,0 +1,51 @@
+<table class='table'>
+
+  <tr>
+    <th>id</th>
+    <th>station_name</th>
+    <th>station_address</th>
+    <th>property_type</th>
+    <th>num_docks</th>
+    <th>power_type</th>
+    <th>address1</th>
+    <th>zip_code</th>
+    <th>status</th>
+  </tr>
+
+  <% @stations.each do |station| %>
+    <tr>
+      <td><%= station.id %></td>
+      <td><%= station.station_name %></td>
+      <td><%= station.station_address %></td>
+      <td><%= station.property_type %></td>
+      <td><%= station.num_docks %></td>
+      <td><%= station.power_type %></td>
+      <td><%= station.address1 %></td>
+      <td><%= station.zip_code %></td>
+      <td><%= station.status %></td>
+    </tr>
+  <% end %>
+
+</table>
+
+<h2>Links to implement</h2>
+<ul>
+  <li>
+    <a href="/existing">/existing</a>
+  </li>
+  <li>
+    <a href="/private">/private</a>
+  </li>
+  <li>
+    <a href="/zip/80204">/zip/80204</a>
+  </li>
+  <li>
+    <a href="/zip/80205">/zip/80205</a>
+  </li>
+  <li>
+    <a href="/street/Broadway">/street/Broadway</a>
+  </li>
+  <li>
+    <a href="/street/17th">/street/17th</a>
+  </li>
+</ul>
