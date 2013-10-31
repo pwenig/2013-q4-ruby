@@ -1,0 +1,23 @@
+<% if @error != nil %>
+  <b>Error: <%= @error %></b>
+<% end %>
+
+<h1>Please login</h1>
+
+<p>
+  <%= label_tag "username" %>
+  <br>
+  <%= text_field_tag "username", @old_username %>
+</p>
+
+<p>
+  <%= label_tag "pin_number" %>
+  <br>
+  <%= password_field_tag "pin_number", "" %>
+</p>
+
+<p>
+  <%= submit_tag "Login" %>
+</p>
+
+<p>(Note: username/pin is abe/123 or amy/456)</p>

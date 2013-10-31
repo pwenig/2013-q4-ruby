@@ -1,0 +1,13 @@
+<h1>Choose last name</h1>
+
+<p>More than one person matched your search:</p>
+
+<ul>
+  <% @people.each do |person| %>
+    <li>
+      <a href="/person/<%= person.first_name %>/<%= person.last_name %>">
+        <%= person.first_name %> <%= person.last_name %>
+      </a>
+    </li>
+  <% end %>
+</ul>
