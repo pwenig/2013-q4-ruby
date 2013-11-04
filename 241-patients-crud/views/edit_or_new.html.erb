@@ -1,0 +1,30 @@
+<%= error_messages_for @patient %>
+
+<a href="/">Back</a>
+
+<% if @patient.id == nil %>
+  <h1>Add new patient</h1>
+<% else %>
+  <h1>Edit patient #<%= @patient.id %></h1>
+<% end %>
+
+<p>
+  <%= label_tag "systolic" %>
+  <br>
+  <%= text_field_tag "systolic", @patient.systolic %>
+</p>
+
+<p>
+  <%= label_tag "diastolic" %>
+  <br>
+  <%= text_field_tag "diastolic", @patient.diastolic %>
+</p>
+
+<p>
+  <% if @patient.id == nil %>
+    <%= submit_tag "Add" %>
+  <% else %>
+    <%= submit_tag "Update" %>
+    <%= submit_tag "Delete" %>
+  <% end %>
+</p>
