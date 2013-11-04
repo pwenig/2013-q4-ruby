@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" onmousemove="if (selectedElement) { moveElement(event); }" transform="scale(0.3 0.3)">
+  <style>
+
+      .draggable {
+        cursor: move;
+      }
+      .word {
+        font-family: monospace;
+        font-size: 20pt;
+      }
+  </style>
+  <script type="text/ecmascript">
+    <![CDATA[var selectedElement = 0;
+var currentX = 0;
+var currentY = 0;
+var currentMatrix = 0;
+var selectedElement = null;
+
+function selectElement(evt, target) {
+  selectedElement = target;
+  currentX = evt.clientX;
+  currentY = evt.clientY;
+  if (selectedElement.getAttributeNS(null, "transform") === "") {
+    selectedElement.setAttributeNS(null, "transform",
+      "translate(0 0)");
+  }
+  currentMatrix = selectedElement.getAttributeNS(null, "transform").slice(10,-1).split(' ');
+
+  for(var i=0; i<currentMatrix.length; i++) {
+    currentMatrix[i] = parseFloat(currentMatrix[i]);
+  }
+
+  selectedElement.setAttributeNS(null, "onmousemove", "moveElement(evt)");
+  selectedElement.setAttributeNS(null, "onmouseup", "deselectElement(evt)");
+  evt.preventDefault();
+  return false;
+}
+
+function moveElement(evt) {
+  var dx = evt.clientX - currentX;
+  var dy = evt.clientY - currentY;
+  currentMatrix[0] += dx;
+  currentMatrix[1] += dy;
+
+  selectedElement.setAttributeNS(null, "transform", "translate(" + currentMatrix.join(' ') + ")");
+  currentX = evt.clientX;
+  currentY = evt.clientY;
+  evt.preventDefault();
+  return false;
+}
+
+function deselectElement(evt) {
+  if(selectedElement !== null) {
+    selectedElement.removeAttributeNS(null, "onmousemove");
+    selectedElement.removeAttributeNS(null, "onmouseout");
+    selectedElement.removeAttributeNS(null, "onmouseup");
+    selectedElement = null;
+  }
+}
+]]>
+  </script>
+  <rect x="0" y="0" width="100%" height="100%" fill="#eee"/>
+  <g transform="translate(10 20)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 0.0,0 157.0,0 142.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <g transform="translate(142.0 0)">
+      <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:#aff"/>
+    </g>
+    <text x="20.0" y="35.0">Person</text>
+  </g>
+  <g transform="translate(510 50)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 15.0,0 157.0,0 142.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:#99f"/>
+    <g transform="translate(142.0 0)">
+      <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:blue"/>
+    </g>
+    <text x="20.0" y="35.0">.first</text>
+  </g>
+  <g transform="translate(10 80)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 0.0,0 174.0,0 159.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <g transform="translate(159.0 0)">
+      <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:blue"/>
+    </g>
+    <text x="20.0" y="35.0">@person</text>
+  </g>
+  <g transform="translate(510 110)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 15.0,0 480.0,0 465.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:#aff"/>
+    <g transform="translate(465.0 0)">
+      <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:#99f"/>
+    </g>
+    <text x="20.0" y="35.0">.find_by(first_name:    )</text>
+    <g transform="translate(377.0 0)">
+      <polygon points="0,8 0,42.0 37.4,42.0 47.6,8" style="fill:#eee; stroke:black; stroke-width:1.0"/>
+      <g transform="translate(34.5 8) scale(0.68 0.68)">
+        <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:green"/>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(10 140)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 15.0,0 446.0,0 431.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:#aff"/>
+    <g transform="translate(431.0 0)">
+      <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:#99f"/>
+    </g>
+    <text x="20.0" y="35.0">.where(first_name:    )</text>
+    <g transform="translate(343.0 0)">
+      <polygon points="0,8 0,42.0 37.4,42.0 47.6,8" style="fill:#eee; stroke:black; stroke-width:1.0"/>
+      <g transform="translate(34.5 8) scale(0.68 0.68)">
+        <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:green"/>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(510 170)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 15.0,0 429.0,0 414.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:#99f"/>
+    <g transform="translate(414.0 0)">
+      <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:#99f"/>
+    </g>
+    <text x="20.0" y="35.0">.where(last_name:    )</text>
+    <g transform="translate(326.0 0)">
+      <polygon points="0,8 0,42.0 37.4,42.0 47.6,8" style="fill:#eee; stroke:black; stroke-width:1.0"/>
+      <g transform="translate(34.5 8) scale(0.68 0.68)">
+        <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:green"/>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(10 200)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 0.0,0 174.0,0 159.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <g transform="translate(159.0 0)">
+      <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:#99f"/>
+    </g>
+    <text x="20.0" y="35.0">@people</text>
+  </g>
+  <g transform="translate(510 230)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 15.0,0 140.0,0 125.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:#99f"/>
+    <g transform="translate(125.0 0)">
+      <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:red"/>
+    </g>
+    <text x="20.0" y="35.0">.size</text>
+  </g>
+  <g transform="translate(10 260)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 0.0,0 259.0,0 244.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <g transform="translate(244.0 0)">
+      <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:green"/>
+    </g>
+    <text x="20.0" y="35.0">"first_name"</text>
+  </g>
+  <g transform="translate(510 290)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 0.0,0 242.0,0 227.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <g transform="translate(227.0 0)">
+      <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:green"/>
+    </g>
+    <text x="20.0" y="35.0">params[   ]</text>
+    <g transform="translate(139.0 0)">
+      <polygon points="0,8 0,42.0 37.4,42.0 47.6,8" style="fill:#eee; stroke:black; stroke-width:1.0"/>
+      <g transform="translate(34.5 8) scale(0.68 0.68)">
+        <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:green"/>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(10 320)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 0.0,0 225.0,0 210.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <g transform="translate(210.0 0)">
+      <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:green"/>
+    </g>
+    <text x="20.0" y="35.0">first_name</text>
+  </g>
+  <g transform="translate(510 350)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 0.0,0 208.0,0 193.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <g transform="translate(193.0 0)">
+      <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:green"/>
+    </g>
+    <text x="20.0" y="35.0">last_name</text>
+  </g>
+  <g transform="translate(10 380)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 0.0,0 242.0,0 227.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <g transform="translate(227.0 0)">
+      <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:green"/>
+    </g>
+    <text x="20.0" y="35.0">"last_name"</text>
+  </g>
+  <g transform="translate(510 410)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 0.0,0 174.0,0 159.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <g transform="translate(159.0 0)">
+      <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:orange"/>
+    </g>
+    <text x="20.0" y="35.0">:no_one</text>
+  </g>
+  <g transform="translate(10 440)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 0.0,0 174.0,0 159.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <g transform="translate(159.0 0)">
+      <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:orange"/>
+    </g>
+    <text x="20.0" y="35.0">:choose</text>
+  </g>
+  <g transform="translate(510 470)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 0.0,0 174.0,0 159.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <g transform="translate(159.0 0)">
+      <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:orange"/>
+    </g>
+    <text x="20.0" y="35.0">:number</text>
+  </g>
+  <g transform="translate(10 500)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 0.0,0 278.0,0 278.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <text x="20.0" y="35.0">@people =    
+</text>
+    <g transform="translate(190.0 0)">
+      <polygon points="0,8 0,42.0 37.4,42.0 47.6,8" style="fill:#eee; stroke:black; stroke-width:1.0"/>
+      <g transform="translate(34.5 8) scale(0.68 0.68)">
+        <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:#99f"/>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(510 530)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 0.0,0 329.0,0 329.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <text x="20.0" y="35.0">first_name =    
+</text>
+    <g transform="translate(241.0 0)">
+      <polygon points="0,8 0,42.0 37.4,42.0 47.6,8" style="fill:#eee; stroke:black; stroke-width:1.0"/>
+      <g transform="translate(34.5 8) scale(0.68 0.68)">
+        <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:green"/>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(10 560)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 0.0,0 329.0,0 329.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <text x="20.0" y="35.0">first_name =    
+</text>
+    <g transform="translate(241.0 0)">
+      <polygon points="0,8 0,42.0 37.4,42.0 47.6,8" style="fill:#eee; stroke:black; stroke-width:1.0"/>
+      <g transform="translate(34.5 8) scale(0.68 0.68)">
+        <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:green"/>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(510 590)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 0.0,0 278.0,0 278.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <text x="20.0" y="35.0">halt erb(   )
+</text>
+    <g transform="translate(173.0 0)">
+      <polygon points="0,8 0,42.0 37.4,42.0 47.6,8" style="fill:#eee; stroke:black; stroke-width:1.0"/>
+      <g transform="translate(34.5 8) scale(0.68 0.68)">
+        <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:orange"/>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(10 620)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 0.0,0 261.0,0 261.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <text x="20.0" y="35.0">people =    
+</text>
+    <g transform="translate(173.0 0)">
+      <polygon points="0,8 0,42.0 37.4,42.0 47.6,8" style="fill:#eee; stroke:black; stroke-width:1.0"/>
+      <g transform="translate(34.5 8) scale(0.68 0.68)">
+        <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:#99f"/>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(510 650)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 0.0,0 108.0,0 108.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <text x="20.0" y="35.0">end
+</text>
+  </g>
+  <g transform="translate(10 680)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 0.0,0 244.0,0 244.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <text x="20.0" y="35.0">if     == 1
+</text>
+    <g transform="translate(71.0 0)">
+      <polygon points="0,8 0,42.0 37.4,42.0 47.6,8" style="fill:#eee; stroke:black; stroke-width:1.0"/>
+      <g transform="translate(34.5 8) scale(0.68 0.68)">
+        <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:red"/>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(510 710)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 0.0,0 244.0,0 244.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <text x="20.0" y="35.0">if     == 0
+</text>
+    <g transform="translate(71.0 0)">
+      <polygon points="0,8 0,42.0 37.4,42.0 47.6,8" style="fill:#eee; stroke:black; stroke-width:1.0"/>
+      <g transform="translate(34.5 8) scale(0.68 0.68)">
+        <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:red"/>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(10 740)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 0.0,0 312.0,0 312.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <text x="20.0" y="35.0">last_name =    
+</text>
+    <g transform="translate(224.0 0)">
+      <polygon points="0,8 0,42.0 37.4,42.0 47.6,8" style="fill:#eee; stroke:black; stroke-width:1.0"/>
+      <g transform="translate(34.5 8) scale(0.68 0.68)">
+        <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:green"/>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(510 770)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 0.0,0 244.0,0 244.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <text x="20.0" y="35.0">if     &gt;= 2
+</text>
+    <g transform="translate(71.0 0)">
+      <polygon points="0,8 0,42.0 37.4,42.0 47.6,8" style="fill:#eee; stroke:black; stroke-width:1.0"/>
+      <g transform="translate(34.5 8) scale(0.68 0.68)">
+        <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:red"/>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(10 800)" class="draggable word" onmousedown="selectElement(event, this)">
+    <polygon points="0,50.0 0.0,0 278.0,0 278.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <text x="20.0" y="35.0">@person =    
+</text>
+    <g transform="translate(190.0 0)">
+      <polygon points="0,8 0,42.0 37.4,42.0 47.6,8" style="fill:#eee; stroke:black; stroke-width:1.0"/>
+      <g transform="translate(34.5 8) scale(0.68 0.68)">
+        <polygon points="-5,50.5 10.0,-0.5 20.0,-0.5 5,50.5" style="fill:blue"/>
+      </g>
+    </g>
+  </g>
+  <text x="0" y="15" fill="#aff">AR_CLASS_OBJECT</text>
+  <text x="200" y="15" fill="#99f">AR_RELATION</text>
+  <text x="400" y="15" fill="blue">AR_OBJECT</text>
+  <text x="600" y="15" fill="green">STRING</text>
+  <text x="800" y="15" fill="orange">SYMBOL</text>
+  <text x="1000" y="15" fill="red">INT</text>
+</svg>
