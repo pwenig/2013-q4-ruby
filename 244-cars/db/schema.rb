@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20131105170921) do
   end
 
   create_table "members", force: true do |t|
-    t.string "name"
+    t.string "username"
   end
 
 end
