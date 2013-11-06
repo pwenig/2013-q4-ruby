@@ -1,4 +1,4 @@
-require './davinci-sinatra.rb'
+  require './davinci-sinatra.rb'
 
 get "/" do
   @customer = Customer.find(1)
@@ -12,21 +12,37 @@ get "/sign_up" do
   halt erb(:sign_up)
 end
 
-post "/sign_up" do
-  @customer = Customer.find(1)
+#when the user clicks Go Back, the browser sends a post request to the server
+#for the route "/sign_up", which has an established handler. You would get a 404 error if it didn't. 
+#The server then looks to 
+#find the row in the Customer table with the id 1 and load into memory and save
+# to the @cusotmer instance variable. Load the variable for use later
+#looking up the value for the key commit, which in this case is Go Back, which returns true
+#and runs line 34 and redirects. 
 
-  if params["commit"] == "Go back"
-    redirect "/"
+#when the user clicks Contine, the browser sends a post request to the seriver for the same route, "/sign_up"
+#after the variable is loaded into memory, the server looks at the value for the key commit, which in this case
+#is Continue and returns true with runs line 36. Line 36 takes the params value first_name and assigns it to the first_name field of the row with the 
+#id 1 in the Customer table by using the instance variable @customer, which has been established as Customer with the ID 1. Line 35 does the same thing 
+#for last_name line 37 says that @customer.save is true, so it's saves it to the table. Line 38 redirects to the next page /shipping
+ 
+
+post "/sign_up" do #request has been made. This is the handler.
+  @customer = Customer.find(1) #assigns the instance variable to ID 1 from Customer table and saves it to memory
+
+
+  if params["commit"] == "Go back" #
+    redirect "/" # it's redirected and the handler stops here 
   elsif params["commit"] == "Continue"
-    @customer.first_name = params["first_name"]
-    @customer.last_name = params["last_name"]
-    if @customer.save
+    @customer.first_name = params["first_name"] # if you see an equal sign, lool right side first. look at the params value and assigns the empty string to the instance varaible.
+    @customer.last_name = params["last_name"] # looking for teh value for the key last name in params and assigning it to the last name field for the instanc variable.
+    if @customer.save == true
       redirect "/shipping"
     else
-    halt erb(:sign_up)
-    end
-  end
-end
+    halt erb(:sign_up) # halts handler
+    end # end inner if
+  end # end outer if
+end # end post
 
 get "/shipping" do
   @customer = Customer.find(1)

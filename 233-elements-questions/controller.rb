@@ -4,8 +4,16 @@ get "/" do
   halt erb(:questions)
 end
 
+
 post "/" do
-  # TODO: fill out the @answer9 or @answer10 variables in response
-  # to whatever the user entered.
+if params[:name_of_element] != ""
+    element = Element.find_by!(name: params[:name_of_element])
+    @answer_no = element.number
+  end
+  if params[:number_of_element] != ""
+    element = Element.find_by!(number: params[:number_of_element])
+    @answer_name = element.name
+  end
   halt erb(:answer_to_9_or_10)
 end
+  

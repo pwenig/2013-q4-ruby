@@ -1,34 +1,59 @@
 <p class='question'>1. Print out the names of the atomic elements in alphabetical order.</p>
+ 
 
-<!-- TODO: write this -->
+<!-- each loop. inside the each loop, print each element's name -->
+
+
+<ul>
+	<%= Element.order(:name).each do |element| %>
+	<li><%= element.name %></li>  <!-- erb print tag -->
+	<% end %>
+</ul>
 
 <p class='question'>2. Print out the name for the element with number of 27.</p>
 
-<!-- TODO: write this -->
+<% Element.find_by(:number 27).name %>
 
 <p class='question'>3. Print the name of the element with the lowest melting point.</p>
 
-<!-- TODO: write this -->
+<% Element.order(:melting_point).first.name %>
 
 <p class='question'>4. Print the name of the element with the highest melting point. Hint: you'll need to filter out the NULL records with <code>where("melting_point is not null")</code>.</p>
 
-<!-- TODO: write this -->
+<%= Element.order("melting_point").last.name %> 
 
 <p class='question'>5. Print out all the element names that end with the letters ium.  (e.g. Calcium)</p>
 
-<!-- TODO: write this -->
+<ul>
+<%= Element.where("name ilike ?", "%ium").each do |element| %>
+	<li><%= element.name %></li>
+	<% end %>
+</ul>
 
 <p class='question'>6. Print out the name and number for each of the noble gases.  Look in the <code>category</code> field to find the noble gases.</p>
 
-<!-- TODO: write this -->
+<ul>
+	<%= Element.where(category: "noble gases").each do |element| %>
+	<li><%= element.name%><%= element.number %></li>
+	<% end %>
+</ul>
 
 <p class='question'>7. Print out the symbols for the alkali metals, sorted alphabetically.  Look in the <code>category</code> field to find the alkali metals.</p>
 
-<!-- TODO: write this -->
+<ul>
+	<%= Element.where(category: "alkali metals").each do |element| %>
+	<li><%= element.symbol %></li>
+	<% end %>
+</ul>
 
-<p class='question'>8. Print out element names with atomic number of 10 or below.  Example less-than method call: <code>where("year &lt; 1998")</code></p>
 
-<!-- TODO: write this -->
+<p class='question'>8. Print out element names with atomic number of 10 or below.  Example less-than method call: <code>where("year <= 1998")</code></p>
+
+<ul>
+	<%= Element.where("number <= 10").each do |element| %>
+	<li><%= element.name %></li>
+	<% end %>
+</ul>
 
 <p class='question'>9. After the user enters a name of an element in the text box below and clicks Find, print the number of the element on the resulting POST page.</p>
 

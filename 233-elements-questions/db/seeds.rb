@@ -9,7 +9,7 @@ Element.create! number: 2,
   symbol: 'He',
   melting_point: '-272.2',
   category: 'noble gases'
-
+ 
 Element.create! number: 3,
   name: 'Lithium',
   symbol: 'Li',
