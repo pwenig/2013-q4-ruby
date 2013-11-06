@@ -304,13 +304,13 @@ function deselectElement(evt) {
     </g>
   </g>
   <g transform="translate(510 180.0)" class="draggable word" onmousedown="selectElement(event, this)">
-    <polygon points="0,50.0 15.0,0 368.5,0 353.5,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <polygon points="0,50.0 15.0,0 434.5,0 419.5,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
     <polygon points="-5,50.5 11.0,-0.5 21.0,-0.5 5,50.5" style="fill:#060"/>
-    <g transform="translate(353.5 0)">
+    <g transform="translate(419.5 0)">
       <polygon points="-5,50.5 11.0,-0.5 21.0,-0.5 5,50.5" style="fill:#dfd"/>
     </g>
-    <text x="20.0" y="35.0">.find_by(name:    )</text>
-    <g transform="translate(267.5 0)">
+    <text x="20.0" y="35.0">.find_by(username:    )</text>
+    <g transform="translate(333.5 0)">
       <polygon points="0,8 0,42.0 36.15,42.0 46.35,8" style="fill:#eee; stroke:black; stroke-width:1.0"/>
       <g transform="translate(33.25 8) scale(0.68 0.68)">
         <polygon points="-5,50.5 11.0,-0.5 21.0,-0.5 5,50.5" style="fill:yellow"/>
@@ -347,13 +347,13 @@ function deselectElement(evt) {
     </g>
   </g>
   <g transform="translate(510 420.0)" class="draggable word" onmousedown="selectElement(event, this)">
-    <polygon points="0,50.0 15.0,0 335.5,0 320.5,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <polygon points="0,50.0 15.0,0 401.5,0 386.5,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
     <polygon points="-5,50.5 11.0,-0.5 21.0,-0.5 5,50.5" style="fill:#060"/>
-    <g transform="translate(320.5 0)">
+    <g transform="translate(386.5 0)">
       <polygon points="-5,50.5 11.0,-0.5 21.0,-0.5 5,50.5" style="fill:#0f0"/>
     </g>
-    <text x="20.0" y="35.0">.where(name:    )</text>
-    <g transform="translate(234.5 0)">
+    <text x="20.0" y="35.0">.where(username:    )</text>
+    <g transform="translate(300.5 0)">
       <polygon points="0,8 0,42.0 36.15,42.0 46.35,8" style="fill:#eee; stroke:black; stroke-width:1.0"/>
       <g transform="translate(33.25 8) scale(0.68 0.68)">
         <polygon points="-5,50.5 11.0,-0.5 21.0,-0.5 5,50.5" style="fill:yellow"/>
@@ -446,12 +446,12 @@ function deselectElement(evt) {
     <text x="20.0" y="35.0">.name</text>
   </g>
   <g transform="translate(510 1140.0)" class="draggable word" onmousedown="selectElement(event, this)">
-    <polygon points="0,50.0 15.0,0 220.0,0 205.0,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
+    <polygon points="0,50.0 15.0,0 203.5,0 188.5,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
     <polygon points="-5,50.5 11.0,-0.5 21.0,-0.5 5,50.5" style="fill:#dfd"/>
-    <g transform="translate(205.0 0)">
+    <g transform="translate(188.5 0)">
       <polygon points="-5,50.5 11.0,-0.5 21.0,-0.5 5,50.5" style="fill:yellow"/>
     </g>
-    <text x="20.0" y="35.0">.full_name</text>
+    <text x="20.0" y="35.0">.username</text>
   </g>
   <g transform="translate(510 1200.0)" class="draggable word" onmousedown="selectElement(event, this)">
     <polygon points="0,50.0 0.0,0 104.5,0 89.5,50.0" style="fill:white; stroke:black; stroke-width:1.0"/>
