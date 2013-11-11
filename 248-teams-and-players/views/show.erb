@@ -6,3 +6,9 @@
   <b>Name</b><br>
   <%= @team.name %>
 </p>
+<p>
+	<b>Players</b><br>
+	<% Player.where(team_id: @team.id).each do |player| %>
+	<%= player.name %>
+</p>
+<% end %>

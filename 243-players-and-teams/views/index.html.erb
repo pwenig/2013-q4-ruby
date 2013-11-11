@@ -6,6 +6,11 @@
       <a href="/players/<%= player.id %>">
         <%= player.name %>
       </a>
+
+
+      <% team = Team.find_by(id: player.team_id) %>
+      <%= team.name %>
+
     </li>
   <% end %>
 </ul>

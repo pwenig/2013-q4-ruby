@@ -1,9 +1,9 @@
-<%= error_messages_for @patient %>
+<%= error_messages_for @patient %>      <%# this prints the error messages for @patent %>
 
-<a href="/">Back</a>
+<a href="/">Back</a>                <%# intiates the / route %>
 
-<% if @patient.id == nil %>
-  <h1>Add new patient</h1>
+<% if @patient.id == nil %>       <%# it would be nill if this is a new record %>
+  <h1>Add new patient</h1>        <%# prints h1 title Add New Patient %>
 <% else %>
   <h1>Edit patient #<%= @patient.id %></h1>
 <% end %>
@@ -21,7 +21,7 @@
 </p>
 
 <p>
-  <% if @patient.id == nil %>
+  <% if @patient.id == nil %>      
     <%= submit_tag "Add" %>
   <% else %>
     <%= submit_tag "Update" %>

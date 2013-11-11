@@ -3,6 +3,7 @@
 <table class="table">
   <tr>
     <th>Name</th>
+    <th>Author</th>
   </tr>
   <% @recipes.each do |recipe| %>
     <tr>
@@ -11,6 +12,18 @@
           <%= recipe.name %>
         </a>
       </td>
+      <td>
+        <a href="/by-author/<%= Author.find(recipe.author_id).first_name %>">
+        <%= Author.find(recipe.author_id).first_name %>
+      </a>
+    </td>
     </tr>
   <% end %>
 </table>
+
+
+
+
+<%# Find the authors row with an id matching the author_id
+          # of this recipe, and print out their first_name.  Also
+          # link to the page showing only recipes by this author. %>

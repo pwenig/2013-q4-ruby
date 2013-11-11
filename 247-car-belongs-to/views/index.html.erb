@@ -1,5 +1,11 @@
 <% @cars.each do |car| %>
   <h2>
     Who has the <%= car.model %>?
-  </h2>
+  <% if car.member == nil %>    <!-- if there isn't a member, go to next line -->
+  No One
+  <% else %>					<!-- if there is a member, run next line -->
+  <%= car.member.name %>
+<% end %>
+has the <%= car.model %>
+</h2>
 <% end %>

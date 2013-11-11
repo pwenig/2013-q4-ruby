@@ -10,12 +10,21 @@
     <th>Company</th>
   </tr>
 
-  <% @employees.each do |e| %>
+  <% @employees.each do |e| %>    <!-- setting the each loop -->
     <tr>
       <td><%= e.id %></td>
       <td><%= e.first_name %></td>
       <td><%= e.last_name %></td>
-      <td>TODO</td>
+      <td>
+      <% company = Company.find_by(id: e.company_id) %> <!-- Finding the id by company_id in the Company model and assiging it to company.   -->
+      <% company = e.company %> 
+      <% if company == nil %>  <!-- if statement inside the erb tags. company id can be nil-->
+      None
+      <% else %>  <!-- else statement inside the erb tags -->
+      <%= company.name %>
+      (<%= company.stock_symbol %>)
+      <% end %>
+      </td>
     </tr>
   <% end %>
 
@@ -25,8 +34,9 @@
       size: 10 %></td>
     <td><%= text_field_tag "last_name", @new_employee.last_name,
       size: 10 %></td>
-    <td>TODO</td>
+    <td><%= select_tag "company", options_from_collection_for_select(Company.order(:id), :id, :name, @new_employee.company_id), prompt: "(Choose company)" %></td>
     <td><%= submit_tag "Add" %></td>
   </tr>
 
 </table>
+ 

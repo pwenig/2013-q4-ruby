@@ -6,3 +6,8 @@
   <b>Name</b><br>
   <%= @player.name %>
 </p>
+
+<p>
+	<b>Team Name</b><br>
+	<%= Team.find(@player.team_id).name %>   <!-- finding the team_id of the player variable -->
+</p>

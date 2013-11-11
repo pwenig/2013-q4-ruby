@@ -6,6 +6,11 @@
       <a href="/teams/<%= team.name %>">
         <%= team.name %>
       </a>
+      consists of
+      <% Player.where(team_id: team.id).each do |player| %>
+      <%= player.name %>
+      <% end %>
     </li>
+
   <% end %>
 </ul>
