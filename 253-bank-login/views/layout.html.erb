@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= request.path_info %></title>
+    <script src="/javascripts/add-param-labels.js"></script>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/application.css">
+  </head>
+  <body>
+    <% if flash[:error] != nil %>
+      <div class="alert alert-danger">
+        <%= flash[key] %>
+      </div>
+    <% end %>
+
+    <% if @user != nil %>
+      <nav class='navbar navbar-default'>
+        <div class='navbar-brand navbar-right'>
+          Logged in as <%= @user.username %>
+          <a class="btn btn-default" href="/logout">Logout</a>
+        </div>
+  
+        <ul class='nav navbar-nav'>
+          <li><a href='/accounts'>Accounts</a></li>
+          <li><a href='/location'>Location</a></li>
+          <li><a href='/rates'>Rates</a></li>
+        </ul>
+      </nav>
+    <% end %>
+
+    <%# non-block form is needed to adapt Rails form helpers to Sinatra %>
+    <%# request.path_info means POST action should be same as the GET URL %>
+    <%= form_tag request.path_info %>
+      <%= yield %>
+    </form>
+  </body>
+</html>

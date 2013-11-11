@@ -1,0 +1,29 @@
+<p>
+  <%= label_tag :color, "Favorite color" %>
+  <br>
+  <%= select_tag :color,
+    options_for_select(["red", "yellow", "green"], @user.color),
+    prompt: "" %>
+</p>
+
+<p>
+  <%= label_tag :letter, "Favorite letter" %>
+  <br>
+  <%= radio_button_tag :letter, "A", @user.letter == "A" %> A
+  <%= radio_button_tag :letter, "B", @user.letter == "B" %> B
+  <%= radio_button_tag :letter, "C", @user.letter == "C" %> C
+</p>
+
+<p>
+  <%= label_tag :number, "Favorite number" %>
+  <br>
+  <%= text_field_tag :number, @user.number %>
+</p>
+
+<p>
+  <%= submit_tag "Update preferences" %>
+</p>
+
+<p>
+  <a href="/logout">Logout</a>
+</p>
