@@ -13,32 +13,58 @@ end
 
 post "/login" do
   # TODO: Take the username and password that the user entered,
-  # and either log them in, saving their user ID to the session,
-  # and redirect to /accounts, or set an error message in @error
-  # and re-render login.html.erb.
+  username = params["username"]
+  password = params["password"]
+  found_user = User.find_by(username: username)
+  
+  if found_user == nil
+    @error = "Unknown User"
+    halt erb(:login)
+  elsif password != found_user.password
+    @error = "Incorrect Password"
+    halt erb(:login)
+  else
+    session[:user_id] = found_user.id
+    
+  end
+
+
 
   redirect "/accounts"
 end
 
 get "/accounts" do
-  @user = User.find(1) # TODO: Remove this line
+  
   # TODO: Load the user based on the id saved to the session
-
+ @user = User.find(session[:user_id])
   halt erb(:accounts)
 end
 
 get "/location" do
-  @user = User.find(1) # TODO: Remove this line
+  @user = User.find(session[:user_id]) 
   # TODO: Load the user based on the id saved to the session
 
   halt erb(:location)
 end
 
 get "/rates" do
-  @user = User.find(1) # TODO: Remove this line
+  @user = User.find(session[:user_id]) 
   # TODO: Load the user based on the id saved to the session
 
   halt erb(:rates)
 end
 
 # TODO: Write handler for GET /logout that logs out the user
+get "/logout" do
+  session.clear
+  redirect "/"
+end
+
+
+
+
+
+
+
+
+
